@@ -1,11 +1,15 @@
 const fs = require('fs');
 const fsp = require('fs/promises');
+
+const path = require('path');
+
+const filePath = path.resolve(__dirname, './data.txt')
 //Synchronous reading from file 
-const text = fs.readFileSync('./data.txt', { encoding: 'utf-8'});
+const text = fs.readFileSync(filePath, { encoding: 'utf-8'});
 
 //Asynchronous reading from file 
 
-fs.readFile('./data.txt' , { encoding: 'utf-8'},(err,data)=>{
+fs.readFile(filePath , { encoding: 'utf-8'},(err,data)=>{
     if(err){
         return
     }
@@ -14,9 +18,9 @@ fs.readFile('./data.txt' , { encoding: 'utf-8'},(err,data)=>{
 
 //Asynchronous reading from file  with promises
 
-fsp.readFile('./data.txt', {encoding: 'utf-8'})
+fsp.readFile(filePath, {encoding: 'utf-8'})
 .then(result =>{
-    
+
     console.log(result);
 
 })
