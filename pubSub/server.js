@@ -1,11 +1,10 @@
 const http = require('http');
 
-const eventBus = require('./eventBus')
+const eventBus = require('./eventBus');
+
 const server = http.createServer((req,res)=>{
 
-logger.log('Request: ' + req.url);
-reporter.collect(`${req.method} - ${req.url} `);
-
+//console.log('Request: ' + req.url);
 
 eventBus.publish('request', {method: req.method, url: req.url});
 
