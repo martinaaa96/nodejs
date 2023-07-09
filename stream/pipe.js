@@ -5,3 +5,4 @@ const readStream = fs.createReadStream('./data.txt');
 const writeStream = fs.createWriteStream('./datacopy.txt');
 
 readStream.pipe(writeStream);
+
