@@ -4,13 +4,4 @@ const readStream = fs.createReadStream('./data.txt');
 
 const writeStream = fs.createWriteStream('./datacopy.txt');
 
-readStream.on('data', (chunk)=>{
-
-    writeStream.write(chunk);
-
-});
-
-readStream.on('close', ()=>{
-    writeStream.end();
-
-});
+readStream.pipe(writeStream);
